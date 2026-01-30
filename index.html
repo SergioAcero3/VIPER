@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VIPER TV — Landing Preview</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #0a0a0f;
+        color: #fff;
+        line-height: 1.5;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        z-index: 20;
+      }
+      .container {
+        width: min(1100px, 90vw);
+        margin: 0 auto;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+      }
+      .logo {
+        font-size: 1.6rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .logo span:last-child {
+        color: #dc2626;
+      }
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+      .pill {
+        padding: 8px 18px;
+        border-radius: 999px;
+        background: #dc2626;
+        font-weight: 700;
+        font-size: 0.9rem;
+        box-shadow: 0 12px 30px rgba(220, 38, 38, 0.2);
+      }
+      .hero {
+        padding: 96px 0 80px;
+        text-align: center;
+        background: radial-gradient(circle at top, rgba(220, 38, 38, 0.12), transparent 55%);
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 4vw, 4.2rem);
+        font-weight: 800;
+        margin-bottom: 20px;
+      }
+      .hero h1 span {
+        color: #dc2626;
+      }
+      .hero p {
+        color: #b3b3b8;
+        max-width: 640px;
+        margin: 0 auto 36px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        padding: 14px 26px;
+        border-radius: 999px;
+        font-weight: 700;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .btn.primary {
+        background: #dc2626;
+        border-color: transparent;
+      }
+      .section {
+        padding: 70px 0;
+      }
+      .section h2 {
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        margin-bottom: 16px;
+      }
+      .section p {
+        color: #9ca3af;
+        max-width: 560px;
+      }
+      .cards {
+        margin-top: 32px;
+        display: grid;
+        gap: 20px;
+      }
+      .cards.three {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .cards.four {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .card {
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .card strong {
+        display: block;
+        margin-bottom: 10px;
+      }
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(220, 38, 38, 0.15);
+        color: #f87171;
+        margin-bottom: 12px;
+      }
+      .pricing-grid {
+        margin-top: 36px;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .pricing-card {
+        padding: 24px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .pricing-card.popular {
+        border: 2px solid rgba(220, 38, 38, 0.4);
+        background: rgba(220, 38, 38, 0.14);
+      }
+      .pricing-card h3 {
+        margin-bottom: 8px;
+      }
+      .price {
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: #dc2626;
+      }
+      .list {
+        margin: 20px 0;
+        color: #cbd5f5;
+        font-size: 0.92rem;
+      }
+      .list li {
+        margin-bottom: 8px;
+      }
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 30px 0 40px;
+        text-align: center;
+        color: #6b7280;
+      }
+      @media (max-width: 700px) {
+        .nav-links {
+          display: none;
+        }
+        .hero {
+          padding-top: 70px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="logo">VIPER <span>TV</span></div>
+        <div class="nav-links">
+          <a href="#planes">Planes</a>
+          <a href="#pagos">Pagos</a>
+          <a class="pill" href="https://wa.me/12107269434?text=Hola%2C%20quiero%20solicitar%20el%20demo%20gratis%20de%203%20horas." target="_blank" rel="noreferrer">Demo gratis</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>
+          TODO EL ENTRETENIMIENTO<br />
+          <span>EN UN SOLO LUGAR</span>
+        </h1>
+        <p>
+          Disfruta de la mejor televisión premium desde la comodidad de tu hogar.
+          Estabilidad garantizada en 4K.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#planes">Comenzar ahora</a>
+          <a class="btn" href="https://wa.me/12107269434?text=Hola%2C%20quiero%20solicitar%20el%20demo%20gratis%20de%203%20horas." target="_blank" rel="noreferrer">Demo 3 horas gratis</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <h2>Todo lo que necesitas</h2>
+        <p>Contenido premium ilimitado para toda la familia.</p>
+        <div class="cards three">
+          <div class="card">
+            <strong>Deportes en Vivo</strong>
+            Champions, NFL, NBA y más en máxima definición.
+          </div>
+          <div class="card">
+            <strong>Cine y Series</strong>
+            Estrenos recientes y las mejores series originales.
+          </div>
+          <div class="card">
+            <strong>Multi-dispositivo</strong>
+            Compatible con Smart TV, móviles, consolas y más.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="planes">
+      <div class="container">
+        <h2>Elige tu plan ideal</h2>
+        <p>Todos los planes incluyen acceso completo a +5,000 canales y soporte 24/7.</p>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>1 MES</h3>
+            <div class="price">$10</div>
+            <small>USD</small>
+            <ul class="list">
+              <li>+5,000 canales en vivo</li>
+              <li>1 conexión simultánea</li>
+              <li>Soporte WhatsApp</li>
+              <li>Eventos deportivos VIP</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/12107269434?text=Hola%2C%20quiero%20adquirir%20el%20plan%20de%201%20MES%20en%20USD.%20%C2%BFC%C3%B3mo%20pago%3F" target="_blank" rel="noreferrer">Adquirir</a>
+          </div>
+          <div class="pricing-card popular">
+            <span class="tag">Más popular</span>
+            <h3>3 MESES</h3>
+            <div class="price">$25</div>
+            <small>USD</small>
+            <ul class="list">
+              <li>3 conexiones simultáneas</li>
+              <li>Calidad 4K/UHD</li>
+              <li>Guía EPG</li>
+              <li>Todo el VOD incluido</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/12107269434?text=Hola%2C%20quiero%20adquirir%20el%20plan%20de%203%20MESES%20en%20USD.%20%C2%BFC%C3%B3mo%20pago%3F" target="_blank" rel="noreferrer">Adquirir</a>
+          </div>
+          <div class="pricing-card">
+            <h3>6 MESES</h3>
+            <div class="price">$45</div>
+            <small>USD</small>
+            <ul class="list">
+              <li>3 conexiones simultáneas</li>
+              <li>Servidores de alta velocidad</li>
+              <li>Soporte prioritario</li>
+              <li>Adultos opcional</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/12107269434?text=Hola%2C%20quiero%20adquirir%20el%20plan%20de%206%20MESES%20en%20USD.%20%C2%BFC%C3%B3mo%20pago%3F" target="_blank" rel="noreferrer">Adquirir</a>
+          </div>
+          <div class="pricing-card">
+            <span class="tag">Máximo ahorro</span>
+            <h3>12 MESES</h3>
+            <div class="price">$84</div>
+            <small>USD</small>
+            <ul class="list">
+              <li>4 conexiones VIP</li>
+              <li>Acceso total sin restricciones</li>
+              <li>Congelación de cuenta</li>
+              <li>Regalo: 1 mes extra</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/12107269434?text=Hola%2C%20quiero%20adquirir%20el%20plan%20de%2012%20MESES%20en%20USD.%20%C2%BFC%C3%B3mo%20pago%3F" target="_blank" rel="noreferrer">Adquirir</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pagos">
+      <div class="container">
+        <h2>Métodos de pago</h2>
+        <p>Elige el método más conveniente para tu región.</p>
+        <div class="cards three">
+          <div class="card">
+            <strong>USA</strong>
+            Zelle instantáneo.
+          </div>
+          <div class="card">
+            <strong>México</strong>
+            Transferencia o depósito (SPEI).
+          </div>
+          <div class="card">
+            <strong>Internacional</strong>
+            PayPal y criptomonedas.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>¿Listo para comenzar?</h2>
+        <p>Únete a miles de clientes satisfechos. Prueba el demo gratis y convéncete.</p>
+        <div style="margin-top: 24px;">
+          <a class="btn primary" href="https://wa.me/12107269434?text=Hola%2C%20quiero%20solicitar%20el%20demo%20gratis%20de%203%20horas." target="_blank" rel="noreferrer">Solicitar demo 3 horas</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        © 2024 VIPER TV — Soporte por WhatsApp<br />
+        Marca y diseño demostrativos. Contenido sujeto a disponibilidad.
+      </div>
+    </footer>
+  </body>
+</html>
